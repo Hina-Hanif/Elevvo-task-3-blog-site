@@ -49,7 +49,7 @@ This project was created as part of my **Frontend Development Internship Task** 
 
 ### 🖥️ Blog Homepage
 
-![Blog Homepage](homepage.jpg)
+![Blog Homepage](home page.jpg)
 
 
 ### 📖 Blog Travel Page
