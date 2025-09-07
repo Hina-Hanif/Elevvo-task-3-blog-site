@@ -49,11 +49,13 @@ This project was created as part of my **Frontend Development Internship Task** 
 
 ### 🖥️ Blog Homepage
 
-*homepage.jpg*
+![Blog Homepage](homepage.jpg)
+
 
 ### 📖 Blog Travel Page
 
-*travel.jpg*
+![Blog Travel Page](travel.jpg)
+
 
 ---
 
