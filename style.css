@@ -1,0 +1,337 @@
+/* Color Scheme */
+:root {
+    --terracotta: #BB6653; /* Accent color for buttons & highlights */
+    --blush-beige: #D6A99D; /* Soft background color */
+    --golden-orange: #EDA35A; /* Primary interactive color */
+    --sage-green: #A2AF9B; /* Secondary accent/text color */
+    --primary-bg: #F8F5F2; /* A very light, warm background */
+    --card-bg: #FFFFFF;
+    --text-dark: #2c3e50; /* A dark, highly readable text color */
+    --box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    --transition-speed: 0.5s;
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Changed to a highly readable sans-serif font */
+    background-color: var(--primary-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+    transition: background-color var(--transition-speed);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    background-color: var(--blush-beige);
+    padding: 5rem 0 3rem;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    animation: fadeInDown 1s ease-in-out;
+}
+
+.blog-title {
+    font-family: 'Playfair Display', serif; /* Elegant serif font for titles */
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    /* color: var(--text-dark); Darkened for much better readability */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    color: rgb(6, 6, 83);
+}
+
+.tagline {
+    font-size: 1.5rem;
+    font-weight: 400;
+    /* color: var(--sage-green); Muted contrast color for a subtle effect */
+    margin-top: 0.5rem;
+    color: rgb(50, 56, 117);
+}
+
+/* Controls Section */
+.controls-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 3.5rem 0 2.5rem;
+    gap: 1.5rem;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.search-container {
+    position: relative;
+    flex-grow: 1;
+    max-width: 400px;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    border: 1px solid var(--blush-beige);
+    border-radius: 50px;
+    font-size: 1rem;
+    outline: none;
+    transition: all var(--transition-speed);
+    box-shadow: var(--box-shadow);
+    color: var(--text-dark); /* High contrast */
+}
+
+.search-container input::placeholder {
+    color: var(--sage-green);
+}
+
+.search-container input:focus {
+    border-color: var(--golden-orange);
+    box-shadow: 0 0 0 3px rgba(237, 163, 90, 0.2);
+}
+
+.search-icon {
+    position: absolute;
+    left: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--sage-green);
+    font-size: 1.1rem;
+}
+
+.category-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.filter-btn {
+    background-color: var(--blush-beige);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--terracotta);
+    transition: all var(--transition-speed);
+}
+
+.filter-btn:hover {
+    background-color: var(--golden-orange);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(237, 163, 90, 0.3);
+}
+
+.filter-btn.active {
+    background-color: var(--golden-orange);
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 3px 10px rgba(237, 163, 90, 0.3);
+}
+
+/* Blog Posts Section */
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 3rem;
+    padding: 2rem 0;
+}
+
+.post-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    animation: fadeIn 0.8s ease-in-out forwards;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.post-card-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s ease;
+}
+
+.post-card:hover .post-card-image {
+    transform: scale(1.05);
+}
+
+.post-card-content {
+    padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-card-content .post-category {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--terracotta);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.post-card-content h3 {
+    font-family: 'Playfair Display', serif; /* Using the elegant font for titles */
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-dark); /* High contrast */
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.post-card-content p {
+    font-size: 1rem;
+    color: var(--text-dark); /* Increased readability */
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.post-meta {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--sage-green);
+    border-top: 1px solid var(--blush-beige);
+    padding-top: 1.5rem;
+}
+
+.post-date {
+    color: black;
+}
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 2.5rem 0 4rem;
+    gap: 0.5rem;
+}
+
+.pagination button {
+    background-color: var(--blush-beige);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--terracotta);
+    transition: all var(--transition-speed);
+}
+
+.pagination button:hover {
+    background-color: var(--golden-orange);
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.pagination button.active {
+    background-color: var(--golden-orange);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(237, 163, 90, 0.3);
+}
+
+/* Not Found Message */
+.not-found {
+    text-align: center;
+    padding: 4rem 0;
+    font-size: 1.2rem;
+    color: var(--sage-green);
+    animation: fadeIn 1s ease-in-out;
+    display: none;
+}
+
+.not-found i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--terracotta);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        padding: 3rem 0;
+    }
+    .blog-title {
+        font-size: 3rem;
+    }
+    .tagline {
+        font-size: 1.2rem;
+    }
+    .controls-section {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    .search-container {
+        max-width: none;
+    }
+    .category-filter {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        justify-content: flex-start;
+    }
+    .filter-btn {
+        flex-shrink: 0;
+    }
+    .post-grid {
+        grid-template-columns: 1fr;
+    }
+    .post-card-content {
+        padding: 1.5rem;
+    }
+}
